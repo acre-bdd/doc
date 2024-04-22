@@ -1,0 +1,39 @@
+<div class="mkdocs-ezglossary-summary table">
+<table  id="{{ section }}">
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            {% if types|length > 0 %}
+            <th>References</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for term in terms %}
+        <tr>
+	    {% set defs = glossary.get(section, term, 'defs') %}
+            {% if defs|length > 0 %}
+		    <td><a href="{{ root }}{{ defs[0].page.url }}">{{term}}</a></td>
+		    <td>{{ glossary.definition(section, term) | safe }}</td>
+		    {% if types|length > 0 %}
+		    <td>
+			<ul>
+			{% for type in types %}
+			    {% for entry in glossary.get(section, term, type) %}
+				<li>
+				    <a href="{{ root }}{{ entry.page.url }}#{{ entry.target }}">{{ entry.page.title }}</a>
+				    <small>[{{ type[:-1] }}]</small>
+				</li>
+			    {% endfor %}
+			{% endfor %}
+			</ul>
+		    </td>
+		    {% endif %}
+            {% else %}
+                <td>{{term}}</td><td><bold>no definition found</bold></td>
+	    {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -5,6 +5,17 @@ theme:
     navigation.path
     navigation.tabs
     - content.code.copy
+  palette:
+    primary: deep-orange
+    accent: deep-orange
+
+nav:
+  - Acre: index.md
+  - Quickstart: quickstart.md
+  - CLI:
+    - CLI/index.md
+    - init: CLI/init.md
+    - run: CLI/run.md
 
 extra:
   generator: false
@@ -13,7 +24,7 @@ extra:
       link: https://squidfunk.github.io/mkdocs-material/
 
 extra_css:
-  - static/style.css
+  - stylesheets/extra.css
 
 markdown_extensions:
   - toc:
@@ -43,7 +54,7 @@ markdown_extensions:
 
 plugins:
   - ezglossary:
-      strict: true
+      strict: false
       list_definitions: true
       list_references: true
       inline_refs: none
@@ -59,6 +70,7 @@ plugins:
           inline_refs: short
         - name: term
           inline_refs: short
+      templates: docs/templates
   - mkdocstrings:
       handlers:
         python:
