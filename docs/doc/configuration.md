@@ -1,14 +1,27 @@
 # Configuration
 
 ## About
+
 The <term:test run> can be configured using multiple configuration files.
 
-## playwright
+The configuration files are yaml based and located in the `etc/settings` directory of your
+<term:test project>.
+
+The default configuration file `etc/settings/default.yml` is automatically loaded on each
+<term:test run>.
+
+Further configuration files can be loaded using the `--config` argument of the <cmd:run|acre run>
+command.
+
+## Sections
+
+
+### playwright
 
 The playwright configuration allows you to configure different playwright-related
 settings for the test run.
 
-### playwright.browser
+#### playwright.browser
 
 config:playwright.browser.headless
 :   If set to `true`, the test run will be executed using a headless browser. The
@@ -44,7 +57,7 @@ config:playwright.browser.auto
                 auto: feature
         ```
 
-## testrun
+### testrun
 
 This section contains test run related settings.
 
@@ -60,7 +73,7 @@ config:testrun.delays.step
                 steps: 0.5
         ```
 
-## logging
+### logging
 
 This section contains settings related to the acre logging.
 
