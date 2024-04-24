@@ -22,6 +22,7 @@ nav:
     - doc/index.md
     - doc/configuration.md
     - doc/profiles.md
+  - Terms and Definitions: terms.md
 
 extra:
   generator: false
