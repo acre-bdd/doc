@@ -11,11 +11,17 @@ theme:
 
 nav:
   - Acre: index.md
-  - Quickstart: quickstart.md
+  - Quickstart:
+    - quickstart/index.md
+    - quickstart/next.md
   - CLI:
     - CLI/index.md
     - init: CLI/init.md
     - run: CLI/run.md
+  - Documentation:
+    - doc/index.md
+    - doc/configuration.md
+    - doc/profiles.md
 
 extra:
   generator: false
@@ -59,7 +65,7 @@ plugins:
       list_references: true
       inline_refs: none
       tooltip: full
-      use_default: true
+      use_default: false
       sections:
         - setting
         - term
@@ -71,6 +77,7 @@ plugins:
         - name: term
           inline_refs: short
       templates: docs/templates
+      markdown_links: true
   - mkdocstrings:
       handlers:
         python:
